@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .top {
+            order: -1;
+            align-self: flex-end;
+            height: 40px;
+            width: 80px;
+        }
+
+        .middle {
+            align-self: stretch;
+            flex-grow: 1;
+            position: relative; /* Add position to set absolute position for buttons */
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .bottom div {
+            flex: 1;
+            margin: 5px;
+            height: 350px;
+        }
+
+        /* Just for visualization */
+        .container, .top, .middle, .bottom div {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .music-controls {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+                <a href="登陆.html"><button>登录</button></a>
+                <a href="注册.html"><button>注册</button></a>
+        </div>
+        <div class="middle">
+            DIV2
+            <div class="music-controls">
+                <button id="playButton">播放</button>
+                <button id="pauseButton">暂停</button>
+            </div>
+            <audio id="audioPlayer" src="https://drive.google.com/uc?export=download&id=1_07-ZZh52RfIf9rvNbtMFymskI8FihVM" autoplay></audio>
+        </div>
+        <div class="bottom">
+            <div class="bottom-item">DIV3</div>
+            <div class="bottom-item">DIV4</div>
+            <div class="bottom-item">DIV5</div>
+        </div>
+    </div>
+
+    <script>
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const audio = document.getElementById('audioPlayer');
+
+        playButton.addEventListener('click', () => {
+            audio.play();
+        });
+
+        pauseButton.addEventListener('click', () => {
+            audio.pause();
+        });
+    </script>
+</body>
+</html>
